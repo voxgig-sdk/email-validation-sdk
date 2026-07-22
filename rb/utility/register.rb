@@ -1,0 +1,63 @@
+# EmailValidation SDK utility registration
+require_relative '../core/utility_type'
+require_relative 'clean'
+require_relative 'done'
+require_relative 'make_error'
+require_relative 'feature_add'
+require_relative 'feature_hook'
+require_relative 'feature_init'
+require_relative 'fetcher'
+require_relative 'make_fetch_def'
+require_relative 'make_context'
+require_relative 'make_options'
+require_relative 'make_request'
+require_relative 'make_response'
+require_relative 'make_result'
+require_relative 'make_point'
+require_relative 'make_spec'
+require_relative 'make_url'
+require_relative 'param'
+require_relative 'prepare_auth'
+require_relative 'prepare_body'
+require_relative 'prepare_headers'
+require_relative 'prepare_method'
+require_relative 'prepare_params'
+require_relative 'prepare_path'
+require_relative 'prepare_query'
+require_relative 'result_basic'
+require_relative 'result_body'
+require_relative 'result_headers'
+require_relative 'transform_request'
+require_relative 'transform_response'
+
+EmailValidationUtility.registrar = ->(u) {
+  u.clean = EmailValidationUtilities::Clean
+  u.done = EmailValidationUtilities::Done
+  u.make_error = EmailValidationUtilities::MakeError
+  u.feature_add = EmailValidationUtilities::FeatureAdd
+  u.feature_hook = EmailValidationUtilities::FeatureHook
+  u.feature_init = EmailValidationUtilities::FeatureInit
+  u.fetcher = EmailValidationUtilities::Fetcher
+  u.make_fetch_def = EmailValidationUtilities::MakeFetchDef
+  u.make_context = EmailValidationUtilities::MakeContext
+  u.make_options = EmailValidationUtilities::MakeOptions
+  u.make_request = EmailValidationUtilities::MakeRequest
+  u.make_response = EmailValidationUtilities::MakeResponse
+  u.make_result = EmailValidationUtilities::MakeResult
+  u.make_point = EmailValidationUtilities::MakePoint
+  u.make_spec = EmailValidationUtilities::MakeSpec
+  u.make_url = EmailValidationUtilities::MakeUrl
+  u.param = EmailValidationUtilities::Param
+  u.prepare_auth = EmailValidationUtilities::PrepareAuth
+  u.prepare_body = EmailValidationUtilities::PrepareBody
+  u.prepare_headers = EmailValidationUtilities::PrepareHeaders
+  u.prepare_method = EmailValidationUtilities::PrepareMethod
+  u.prepare_params = EmailValidationUtilities::PrepareParams
+  u.prepare_path = EmailValidationUtilities::PreparePath
+  u.prepare_query = EmailValidationUtilities::PrepareQuery
+  u.result_basic = EmailValidationUtilities::ResultBasic
+  u.result_body = EmailValidationUtilities::ResultBody
+  u.result_headers = EmailValidationUtilities::ResultHeaders
+  u.transform_request = EmailValidationUtilities::TransformRequest
+  u.transform_response = EmailValidationUtilities::TransformResponse
+}
