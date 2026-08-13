@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from emailvalidation_sdk.utility.voxgig_struct import voxgig_struct as vs
 from emailvalidation_sdk import EmailValidationSDK
-from core import helpers
+from emailvalidation_sdk.core import helpers
 from test import runner
 
 
@@ -61,16 +61,16 @@ def _dns_result_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "EMAILVALIDATION_TEST_DNS_RESULT_ENTID": {},
-        "EMAILVALIDATION_TEST_LIVE": "FALSE",
-        "EMAILVALIDATION_APIKEY": "NONE",
+        "EMAIL_VALIDATION_TEST_DNS_RESULT_ENTID": {},
+        "EMAIL_VALIDATION_TEST_LIVE": "FALSE",
+        "EMAIL_VALIDATION_APIKEY": "NONE",
     })
 
-    live = env.get("EMAILVALIDATION_TEST_LIVE") == "TRUE"
+    live = env.get("EMAIL_VALIDATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("EMAILVALIDATION_APIKEY"),
+            "apikey": env.get("EMAIL_VALIDATION_APIKEY"),
         }
         client = EmailValidationSDK(merged_opts)
         return {

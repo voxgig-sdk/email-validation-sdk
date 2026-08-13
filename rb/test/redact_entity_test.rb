@@ -26,7 +26,7 @@ class RedactEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set EMAILVALIDATION_TEST_REDACT_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set EMAIL_VALIDATION_TEST_REDACT_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -37,7 +37,7 @@ class RedactEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.redact"), "redact_ref01"))
 
     redact_ref01_data_result = redact_ref01_ent.create(redact_ref01_data, nil)
-    redact_ref01_data = Helpers.to_map(redact_ref01_data_result)
+    redact_ref01_data = Helpers.to_map(redact_ref01_data_result.respond_to?(:data_get) ? redact_ref01_data_result.data_get : redact_ref01_data_result)
     assert !redact_ref01_data.nil?
 
   end
@@ -69,39 +69,39 @@ def redact_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["EMAILVALIDATION_TEST_REDACT_ENTID"]
+  entid_env_raw = ENV["EMAIL_VALIDATION_TEST_REDACT_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "EMAILVALIDATION_TEST_REDACT_ENTID" => idmap,
-    "EMAILVALIDATION_TEST_LIVE" => "FALSE",
-    "EMAILVALIDATION_TEST_EXPLAIN" => "FALSE",
-    "EMAILVALIDATION_APIKEY" => "NONE",
+    "EMAIL_VALIDATION_TEST_REDACT_ENTID" => idmap,
+    "EMAIL_VALIDATION_TEST_LIVE" => "FALSE",
+    "EMAIL_VALIDATION_TEST_EXPLAIN" => "FALSE",
+    "EMAIL_VALIDATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["EMAILVALIDATION_TEST_REDACT_ENTID"])
+    env["EMAIL_VALIDATION_TEST_REDACT_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["EMAILVALIDATION_TEST_LIVE"] == "TRUE"
+  if env["EMAIL_VALIDATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["EMAILVALIDATION_APIKEY"],
+        "apikey" => env["EMAIL_VALIDATION_APIKEY"],
       },
       extra || {},
     ])
     client = EmailValidationSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["EMAILVALIDATION_TEST_LIVE"] == "TRUE"
+  live = env["EMAIL_VALIDATION_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["EMAILVALIDATION_TEST_EXPLAIN"] == "TRUE",
+    explain: env["EMAIL_VALIDATION_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

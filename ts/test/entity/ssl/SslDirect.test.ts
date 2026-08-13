@@ -19,11 +19,15 @@ import {
 describe('SslDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when EMAILVALIDATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('EMAILVALIDATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when EMAIL_VALIDATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('EMAIL_VALIDATION_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new EmailValidationSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -80,19 +84,19 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'EMAILVALIDATION_TEST_SSL_ENTID': {},
-    'EMAILVALIDATION_TEST_LIVE': 'FALSE',
-    'EMAILVALIDATION_APIKEY': 'NONE',
+    'EMAIL_VALIDATION_TEST_SSL_ENTID': {},
+    'EMAIL_VALIDATION_TEST_LIVE': 'FALSE',
+    'EMAIL_VALIDATION_APIKEY': 'NONE',
   })
 
-  const live = 'TRUE' === env.EMAILVALIDATION_TEST_LIVE
+  const live = 'TRUE' === env.EMAIL_VALIDATION_TEST_LIVE
 
   if (live) {
     const client = new EmailValidationSDK({
-      apikey: env.EMAILVALIDATION_APIKEY,
+      apikey: env.EMAIL_VALIDATION_APIKEY,
     })
 
-    let idmap: any = env['EMAILVALIDATION_TEST_SSL_ENTID']
+    let idmap: any = env['EMAIL_VALIDATION_TEST_SSL_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

@@ -65,16 +65,16 @@ function ipn_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "EMAILVALIDATION_TEST_IPN_ENTID" => [],
-        "EMAILVALIDATION_TEST_LIVE" => "FALSE",
-        "EMAILVALIDATION_APIKEY" => "NONE",
+        "EMAIL_VALIDATION_TEST_IPN_ENTID" => [],
+        "EMAIL_VALIDATION_TEST_LIVE" => "FALSE",
+        "EMAIL_VALIDATION_APIKEY" => "NONE",
     ]);
 
-    $live = $env["EMAILVALIDATION_TEST_LIVE"] === "TRUE";
+    $live = $env["EMAIL_VALIDATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["EMAILVALIDATION_APIKEY"],
+            "apikey" => $env["EMAIL_VALIDATION_APIKEY"],
         ];
         $client = new EmailValidationSDK($merged_opts);
         return [

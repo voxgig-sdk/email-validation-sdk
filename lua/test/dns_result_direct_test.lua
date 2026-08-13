@@ -66,16 +66,16 @@ function dns_result_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["EMAILVALIDATION_TEST_DNS_RESULT_ENTID"] = {},
-    ["EMAILVALIDATION_TEST_LIVE"] = "FALSE",
-    ["EMAILVALIDATION_APIKEY"] = "NONE",
+    ["EMAIL_VALIDATION_TEST_DNS_RESULT_ENTID"] = {},
+    ["EMAIL_VALIDATION_TEST_LIVE"] = "FALSE",
+    ["EMAIL_VALIDATION_APIKEY"] = "NONE",
   })
 
-  local live = env["EMAILVALIDATION_TEST_LIVE"] == "TRUE"
+  local live = env["EMAIL_VALIDATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["EMAILVALIDATION_APIKEY"],
+      apikey = env["EMAIL_VALIDATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

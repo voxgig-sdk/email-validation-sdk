@@ -43,8 +43,8 @@ class EmailValidationTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('EMAILVALIDATION_TEST_LIVE');
-        $override = self::getenv('EMAILVALIDATION_TEST_OVERRIDE');
+        $live = self::getenv('EMAIL_VALIDATION_TEST_LIVE');
+        $override = self::getenv('EMAIL_VALIDATION_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class EmailValidationTestRunner
             }
         }
 
-        $explain = self::getenv('EMAILVALIDATION_TEST_EXPLAIN');
+        $explain = self::getenv('EMAIL_VALIDATION_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['EMAILVALIDATION_TEST_EXPLAIN'] = $explain;
+            $m['EMAIL_VALIDATION_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

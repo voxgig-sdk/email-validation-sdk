@@ -23,8 +23,8 @@ module EmailValidationTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("EMAILVALIDATION_TEST_LIVE")
-    override = getenv("EMAILVALIDATION_TEST_OVERRIDE")
+    live = getenv("EMAIL_VALIDATION_TEST_LIVE")
+    override = getenv("EMAIL_VALIDATION_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module EmailValidationTestRunner
       end
     end
 
-    explain = getenv("EMAILVALIDATION_TEST_EXPLAIN")
-    m["EMAILVALIDATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("EMAIL_VALIDATION_TEST_EXPLAIN")
+    m["EMAIL_VALIDATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end
