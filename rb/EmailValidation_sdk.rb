@@ -28,7 +28,7 @@ class EmailValidationSDK
     utility = EmailValidationUtility.new
     @_utility = utility
 
-    config = EmailValidationConfig.make_config
+    config = EmailValidationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
