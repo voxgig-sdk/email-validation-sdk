@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { EmailValidationSDK } from '@voxgig-sdk/email-validation'
+import { EmailValidationSDK } from '@voxgig-sdk/email-validation-sdk'
 
 const client = new EmailValidationSDK({
   apikey: process.env.EMAIL_VALIDATION_APIKEY,
@@ -805,7 +805,7 @@ email-validation/
 Import the SDK from the package root:
 
 ```ts
-import { EmailValidationSDK } from '@voxgig-sdk/email-validation'
+import { EmailValidationSDK } from '@voxgig-sdk/email-validation-sdk'
 ```
 
 ### Entity state

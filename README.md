@@ -105,7 +105,7 @@ local result, err = client:Utility():load({ input = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/email-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
 | Python | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
 | PHP | `voxgig-sdk/email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/email-validation-sdk/go` | `go get github.com/voxgig-sdk/email-validation-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Utility():load({ input = "example" })
 ### TypeScript
 
 ```ts
-import { EmailValidationSDK } from '@voxgig-sdk/email-validation'
+import { EmailValidationSDK } from '@voxgig-sdk/email-validation-sdk'
 
 const client = new EmailValidationSDK({
   apikey: process.env.EMAIL_VALIDATION_APIKEY,
