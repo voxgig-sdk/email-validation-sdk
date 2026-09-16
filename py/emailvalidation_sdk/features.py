@@ -1,12 +1,18 @@
 # EmailValidation SDK feature factory
 
 from emailvalidation_sdk.feature.base_feature import EmailValidationBaseFeature
+from emailvalidation_sdk.feature.ratelimit_feature import EmailValidationRatelimitFeature
+from emailvalidation_sdk.feature.retry_feature import EmailValidationRetryFeature
 from emailvalidation_sdk.feature.test_feature import EmailValidationTestFeature
+from emailvalidation_sdk.feature.timeout_feature import EmailValidationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: EmailValidationBaseFeature(),
+    "ratelimit": lambda: EmailValidationRatelimitFeature(),
+    "retry": lambda: EmailValidationRetryFeature(),
     "test": lambda: EmailValidationTestFeature(),
+    "timeout": lambda: EmailValidationTimeoutFeature(),
 }
 
 
