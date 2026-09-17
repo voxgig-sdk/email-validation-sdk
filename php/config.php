@@ -103,6 +103,7 @@ class EmailValidationConfig
                 "base" => "https://kiprio.com/v1",
                 "auth" => [
                     "prefix" => "",
+                    "name" => "X-API-Key",
                 ],
                 "headers" => [
           'content-type' => 'application/json',

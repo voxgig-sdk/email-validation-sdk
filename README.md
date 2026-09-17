@@ -105,12 +105,12 @@ local result, err = client:Utility():load({ input = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/email-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
-| Python | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
-| PHP | `voxgig-sdk/email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/email-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/tags) |
+| Python | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/tags) |
+| PHP | `voxgig-sdk/email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/email-validation-sdk/go` | `go get github.com/voxgig-sdk/email-validation-sdk/go@latest` |
-| Ruby | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
-| Lua | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/releases) |
+| Ruby | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/tags) |
+| Lua | `voxgig-sdk-email-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/email-validation-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/email-validation-sdk/go-cli` | `go install github.com/voxgig-sdk/email-validation-sdk/go-cli/cmd/email-validation@latest` |
 | Go MCP server | `github.com/voxgig-sdk/email-validation-sdk/go-mcp` | `go get github.com/voxgig-sdk/email-validation-sdk/go-mcp@latest` |
 
