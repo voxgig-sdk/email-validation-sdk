@@ -19,7 +19,6 @@ import type {
   WhoiListMatch,
 } from '../EmailValidationTypes'
 
-// TODO: needs Entity superclass
 class WhoiEntity extends EmailValidationEntityBase<Whoi> {
 
   constructor(client: EmailValidationSDK, entopts: any) {

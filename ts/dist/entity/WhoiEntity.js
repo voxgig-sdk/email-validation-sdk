@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WhoiEntity = void 0;
 const EmailValidationEntityBase_1 = require("../EmailValidationEntityBase");
-// TODO: needs Entity superclass
 class WhoiEntity extends EmailValidationEntityBase_1.EmailValidationEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

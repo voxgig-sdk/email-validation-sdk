@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SslEntity = void 0;
 const EmailValidationEntityBase_1 = require("../EmailValidationEntityBase");
-// TODO: needs Entity superclass
 class SslEntity extends EmailValidationEntityBase_1.EmailValidationEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
