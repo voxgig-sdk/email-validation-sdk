@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 EmailValidationUtility.registrar = ->(u) {
   u.clean = EmailValidationUtilities::Clean
+  u.clean_add = EmailValidationUtilities::CleanAdd
+  u.clean_explain = EmailValidationUtilities::CleanExplain
   u.done = EmailValidationUtilities::Done
   u.make_error = EmailValidationUtilities::MakeError
   u.feature_add = EmailValidationUtilities::FeatureAdd

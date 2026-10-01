@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 EmailValidationUtility::setRegistrar(function (EmailValidationUtility $u): void {
     $u->clean = [EmailValidationClean::class, 'call'];
+    $u->clean_add = [EmailValidationClean::class, 'add'];
+    $u->clean_explain = [EmailValidationDone::class, 'clean_explain'];
     $u->done = [EmailValidationDone::class, 'call'];
     $u->make_error = [EmailValidationMakeError::class, 'call'];
     $u->feature_add = [EmailValidationFeatureAdd::class, 'call'];
